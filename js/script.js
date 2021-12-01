@@ -1,3 +1,5 @@
+let lastFetchData;
+
 function showStatus(text) {
     box = document.getElementById("status-box");
     box.style.display = "block";
@@ -9,7 +11,7 @@ function removeStatus() {
 }
 
 function validateName(name) {
-    validRegex = /[A-Za-z ]{1,255}/;
+    validRegex = /^[A-Za-z ]{1,255}$/;
     return validRegex.test(name);
 }
 
@@ -21,8 +23,20 @@ function getSelectedGender() {
     return null;
 }
 
+function showSavedBox(saved) {
+    document.getElementById('saved-res').innerHTML = saved;
+    document.getElementById('saved-box').style.display = 'block';
+}
+
+function clearResults() {
+    document.getElementById('genderResult').innerHTML = null;
+    document.getElementById('probResult').innerHTML = null;
+    document.getElementById('saved-box').style.display = 'none';
+}
+
 document.getElementById('submit-btn').onclick = (event) => {
     event.preventDefault();
+    clearResults();
 
     nameField = document.getElementById('name-field');
     if (!validateName(nameField.value)) {
@@ -44,6 +58,7 @@ document.getElementById('submit-btn').onclick = (event) => {
         })
         .then((data) => {
             console.log(data);
+            lastFetchData = data;
             if (data.gender === null) {
                 showStatus(`No data available for ${data.name}`);
                 return;
@@ -55,14 +70,33 @@ document.getElementById('submit-btn').onclick = (event) => {
         .catch(error => {
             showStatus(error);
         });
+
+    saved = localStorage.getItem(nameField.value);
+    if (saved !== null) {
+        showSavedBox(saved);
+    }
 };
 
 document.getElementById('save-btn').onclick = (event) => {
-    gender = getSelectedGender();
-    console.log(gender);
     event.preventDefault();
+
+    gender = getSelectedGender();
+    if (gender !== null) {
+        localStorage.setItem(lastFetchData.name, gender);
+        showStatus(`${gender} saved for ${lastFetchData.name}`);
+    } else if (lastFetchData.gender !== null) {
+        localStorage.setItem(lastFetchData.name, lastFetchData.gender);
+        showStatus(`${lastFetchData.gender} saved for ${lastFetchData.name}`);
+    } else {
+        return;
+    }
+    showSavedBox(localStorage.getItem(lastFetchData.name));
 };
 
 document.getElementById('clear-btn').onclick = (event) => {
     event.preventDefault();
+
+    document.getElementById('saved-box').style.display = 'none';
+    localStorage.removeItem(lastFetchData.name);
+    showStatus(`Data cleared for ${lastFetchData.name}`);
 };

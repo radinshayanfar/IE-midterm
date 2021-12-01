@@ -52,6 +52,7 @@ article {
 }
 
 #saved-box {
+    display: none;
     border: 2px dotted #2c12009a;
 }
 
