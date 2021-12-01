@@ -32,10 +32,14 @@ function clearResults() {
     document.getElementById('genderResult').innerHTML = null;
     document.getElementById('probResult').innerHTML = null;
     document.getElementById('saved-box').style.display = 'none';
+    for (let element of document.getElementsByName('gender')) {
+        element.checked = false;
+    }
 }
 
 document.getElementById('submit-btn').onclick = (event) => {
     event.preventDefault();
+    event.target.blur();
     clearResults();
 
     nameField = document.getElementById('name-field');
@@ -79,6 +83,7 @@ document.getElementById('submit-btn').onclick = (event) => {
 
 document.getElementById('save-btn').onclick = (event) => {
     event.preventDefault();
+    event.target.blur();
 
     gender = getSelectedGender();
     if (gender !== null) {
