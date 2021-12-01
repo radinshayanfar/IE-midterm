@@ -12,6 +12,14 @@ h2 {
     margin-bottom: 15px;
 }
 
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
 section {
     width: fit-content;
     margin: 50px auto;
@@ -72,4 +80,22 @@ button:focus {
     background-color: #31d2f2;
     border-color: #25cff2;
     box-shadow: 0 0 0 .25rem rgba(11, 172, 204, .5);
+}
+
+#status-box {
+    display: none;
+    max-width: 350px;
+    font-size: .9rem;
+    text-align: center;
+    color: #aa0000;
+    border: 2px solid #aa0000;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 20px;
+    min-height: 1em;
+    padding: 5px;
+}
+
+.prediction {
+    font-weight: bold;
 }

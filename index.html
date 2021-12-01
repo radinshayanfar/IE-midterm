@@ -17,26 +17,26 @@
                 <form class="col-container">
                     <div>
                         Name: &nbsp;
-                        <input type="text" name="name" />
+                        <input id="name-field" type="text" name="name" />
                     </div>
 
                     <div>
                         <div>
-                            <input type="radio" name="gender" value="M" />
-                            <label for="M"> Male </label>
+                            <input id="rad-m" type="radio" name="gender" value="male" />
+                            <label for="rad-m"> Male </label>
                         </div>
                         <div>
-                            <input type="radio" name="gender" value="F" />
-                            <label for="F"> Female </label>
+                            <input id="rad-f" type="radio" name="gender" value="female" />
+                            <label for="rad-f"> Female </label>
                         </div>
                     </div>
 
                     <div class="btn-group">
                         <div>
-                            <button type="submit">Submit</button>
+                            <button id="submit-btn" type="submit">Submit</button>
                         </div>
                         <div>
-                            <button type="submit">Save</button>
+                            <button id="save-btn" type="submit">Save</button>
                         </div>
                     </div>
                 </form>
@@ -46,20 +46,24 @@
                 <article>
                     <h2> Prediction </h2>
 
-                    <div>
-
-                    </div>
+                    <p>Gender: <span class="prediction" id="genderResult"></span></p>
+                    <p>Probability: <span class="prediction" id="probResult"></span></p>
                 </article>
                 <article id="saved-box">
                     <h2> Saved answer </h2>
 
-                    <button type="button"> Clear </button>
+                    <button id="clear-btn" type="button"> Clear </button>
                 </article>
             </div>
         </div>
 
+        <div id="status-box">
+
+        </div>
+
     </section>
 
+    <script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>
