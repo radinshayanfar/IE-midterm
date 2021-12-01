@@ -1,3 +1,5 @@
+/* Displays background image */
+
 body {
     background-image: url('../img/bg.jpg');
     background-repeat: no-repeat;
@@ -5,6 +7,9 @@ body {
     background-attachment: fixed;
     background-position: center;
 }
+
+
+/* These blocks set margin and font-size for h1 and h2 tags */
 
 h1,
 h2 {
@@ -20,6 +25,9 @@ h2 {
     font-size: 25px;
 }
 
+
+/* Styles for main box on the screen */
+
 section {
     width: fit-content;
     margin: 50px auto;
@@ -29,6 +37,9 @@ section {
     background-color: #ffffffaf
 }
 
+
+/* Styles for using flex on the main section */
+
 section>div.flex-container {
     display: flex;
     flex-direction: row;
@@ -36,6 +47,9 @@ section>div.flex-container {
     justify-content: space-around;
     gap: 40px;
 }
+
+
+/* Using column flex for each of two columns inside main section */
 
 .col-container {
     /* height: 100%; */
@@ -51,14 +65,25 @@ article {
     padding: 5px;
 }
 
+
+/* Dotted border around saved answer article */
+
 #saved-box {
     display: none;
     border: 2px dotted #2c12009a;
 }
 
+
+/* Ensures two buttons on the left side have equal widths */
+
 .btn-group {
     width: 50%;
 }
+
+
+/* Some styles for displaying buttons
+ * As I have no taste of designing (!) I have copied most of these styles from bootstrap styles :-)
+ */
 
 button {
     width: 100%;
@@ -83,6 +108,9 @@ button:focus {
     box-shadow: 0 0 0 .25rem rgba(11, 172, 204, .5);
 }
 
+
+/* Styles for red status box on the bottom */
+
 #status-box {
     display: none;
     max-width: 350px;
@@ -96,6 +124,9 @@ button:focus {
     min-height: 1em;
     padding: 5px;
 }
+
+
+/* Bolds the font of api results */
 
 .prediction {
     font-weight: bold;
