@@ -43,7 +43,7 @@ section {
 section>div.flex-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-around;
     gap: 40px;
 }
