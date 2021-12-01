@@ -54,7 +54,7 @@ document.getElementById('submit-btn').onclick = (event) => {
     // Validating name
     nameField = document.getElementById('name-field');
     if (!validateName(nameField.value)) {
-        showStatus('Name must be between 1 and 255 characters and can only contain letters and spaces.');
+        showStatus('Name must be between 1 and 255 characters and can only contains letters and spaces.');
         return;
     }
 
